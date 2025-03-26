@@ -21,11 +21,11 @@ fi
 # Change to the repository directory
 cd "$REPO_DIR" || die "Failed to enter repo directory."
 
-# Run the installer script
+# Run the installer script without user prompts
 if [ -f "root.sh" ]; then
     echo "Running the installation script..."
     chmod +x root.sh || die "Failed to make root.sh executable."
-    ./root.sh || die "Installation script encountered an error."
+    yes | ./root.sh || die "Installation script encountered an error."
 else
     die "root.sh not found!"
 fi
